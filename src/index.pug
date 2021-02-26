@@ -1,0 +1,227 @@
+include pug/parts/_buttons
+include pug/parts/_cards
+
+doctype html
+html(lang='en')
+
+    include pug/_head
+
+    body 
+        include pug/parts/_header
+        #page
+            div.main
+                .main__image(style="background-image:url(images/main.jpg)")
+                .container
+                    img.main__logo(src="images/logos/battlegrounds.png", alt="")
+                    h1.main__title StarSeries i-League CSGO Season 8
+                    .main__row
+                        .main__descr Parimatch League CS:GO is the new online league 
+                            |in Counter-Strike: Global Offensive from Parimatch and StarLadder, 
+                            |with $100,000 total prize pool. 16 teams from Europe and the CIS 
+                            |will take part in the League, with 4 teams going to League through 
+                            |open qualifiers.
+                        .main__about
+                            mixin line(title, descr)
+                                .main__about__line
+                                    .main__about__title= title
+                                    .main__about__descr= descr
+                            +line('Место:','Берлин, Германия')
+                            +line('Даты:','22 Сентября – 30 Октября 2020')
+                            +line('Призы:','$1,000,000')
+                    .main__row
+                        .main__buttons-wrapper
+                            +button-read('#','Read Announcement').button-red 
+                            +button-tickets('#','GET TICKETS').button-border-red
+                        .social
+                            mixin link(href) 
+                                a.social__link(href=href): span.social__icon&attributes(attributes)
+                            +link('#').icon-twitter
+                            +link('#').icon-twitch
+                            +link('#').icon-facebook
+                            +link('#').icon-vk
+            section.section.section-cards
+                .container
+                    .section__title Расписание и результаты
+
+                    .tabs 
+                        .tabs__link.active(data-tab='matches') Matches
+                        .tabs__link(data-tab='battles') Battles
+
+                    #matches.tabcontent.active
+                        .cards-wrapper
+                            +match({
+                                    class:      'live', 
+                                    link:       '#',
+                                    tournament: 'Asia Minor', 
+                                    stage:      'Play-Off',
+                                    logo_1:     'images/logos/team-1.png',
+                                    logo_2:     'images/logos/team-2.png',
+                                    name_1:     'Albert Warren', rate_1: '3.22',
+                                    name_2:     'Gloria Henry',  rate_2: '53.22',
+                                    hold:       'Bо 3',
+                                    partner:    'images/logos/partner.png'
+                            })
+                            +match({
+                                    tournament: 'Asia Minor', 
+                                    stage:      'Play-Off',
+                                    time:       '19:00', date: '29 декабря',
+                                    logo_1:     'images/logos/team-3.png',
+                                    logo_2:     'images/logos/team-4.png',
+                                    name_1:     'Regina Watson',  rate_1: '3.22',
+                                    name_2:     'Kathryn Jones',  rate_2: '53.22',
+                                    timer:      'December 29, 2020 19:00:00',
+                                    hold:       'Bо 3',
+                                    partner:    'images/logos/partner.png'
+                            })
+                            +match({
+                                    tournament: 'Asia Minor', 
+                                    stage:      'Play-Off',
+                                    time:       '19:00', date: '30 декабря',
+                                    logo_1:     'images/logos/team-5.png',
+                                    logo_2:     'images/logos/team-6.png',
+                                    name_1:     'Aubrey Pena',    rate_1: '3.22',
+                                    name_2:     'Leslie Nguyen',  rate_2: '53.22',
+                                    timer:      'December 30, 2020 19:00:00',
+                                    hold:       'Bо 3',
+                                    partner:    'images/logos/partner.png'
+                            })
+                            +match({
+                                    class:      'finished', 
+                                    tournament: 'Asia Minor', 
+                                    stage:      'Play-Off',
+                                    time:       '19:00', date: '25 декабря',
+                                    logo_1:     'images/logos/team-7.png',
+                                    logo_2:     'images/logos/team-8.png',
+                                    name_1:     'Lily Watson', point_1: '2',
+                                    name_2:     'Ted Fisher',  point_2: '1',
+                                    maps:       ['1:0','0:1','1:0'],
+                                    partner:    'images/logos/partner.png'
+                            })
+
+                    #battles.tabcontent
+                        .cards-wrapper
+                            +battle({
+                                        class:      'live', 
+                                        link:       '#',
+                                        stage:      'Group Stage',
+                                        logo:       'images/logos/group.svg',
+                                        name_1:     'Group A',
+                                        name_2:     'Group B',
+                                        map:        'Erangel',
+                                        match_num:  '1'
+                            })
+                            +battle({
+                                        stage:      'Group Stage',
+                                        time:       '19:00', date: '29 декабря',
+                                        logo:       'images/logos/group.svg',
+                                        name_1:     'Group A',
+                                        name_2:     'Group B',
+                                        timer:      'December 29, 2020 19:00:00',
+                                        map:        'Erangel',
+                                        match_num:  '2'
+                            })
+                            +battle({
+                                        stage:      'Group Stage',
+                                        time:       '19:00', date: '30 декабря',
+                                        logo:       'images/logos/group.svg',
+                                        name_1:     'Group A',
+                                        name_2:     'Group B',
+                                        timer:      'December 30, 2020 19:00:00',
+                                        map:        'Erangel',
+                                        match_num:  '3'
+                            })
+                            +battle({
+                                        class:      'finished', 
+                                        stage:      'Group Stage',
+                                        time:       '19:00', date: '25 декабря',
+                                        logo:       'images/logos/group.svg',
+                                        name_1:     'Group A',
+                                        name_2:     'Group B',
+                                        winner:     ['Natus Vincere','(A)','233pts'],
+                                        match_num:  '4'
+                            })
+            section.section.section-stage        
+                .container
+                    .section__title Этапы проведения
+                    .section__descr The path to every Major begins with the open qualifiers 
+                        |for the regional Minor Championships, spanning Europe, CIS, 
+                        |Americas, and Asia. 
+                        a(href='#') Here is 
+                        |the schedule of every qualifying stage of StarLadder Major.
+                    .section__subtitle Зарегистрировано: 24
+
+                    .section__row
+                        .table-list-wrapper
+                            -
+                                var
+                                    list = [
+                                        ['353',  'Dianne Russell',   '#',  'images/flags/flag-uk.svg'],
+                                        ['2',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['3',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['4',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['5',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['6',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['7',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['8',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['9',    'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['10',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['11',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['12',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['13',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['14',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['15',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                        ['16',   'Natus Vincere',    '#',  'images/flags/flag-uk.svg'],
+                                    ] 
+
+                            ul.table-list
+                                li.table-list__heading
+                                    ul
+                                        li.cell: span.count #
+                                        li.cell: span Команда
+                                each val in list
+                                    li.table-list__item
+                                        ul
+                                            li.cell: span.count= val[0]
+                                            li.cell: img.flag(src= val[3])
+                                            li.cell.cell-link: a.link(href= val[2])= val[1]
+                        .registration-wrapper
+                            .stage-registration
+                                mixin registration_item(title,descr,className)
+                                    .stage-registration__item&attributes(attributes) 
+                                        .stage-registration__item__circle
+                                            span.icon(class=className)
+                                        .stage-registration__item__text
+                                            .title= title
+                                            .descr= descr
+                                +registration_item(
+                                                'Registration',
+                                                '29 sep, 19:00 – 20 nov, 10:00',
+                                                'icon-cup').active
+                                +registration_item(
+                                                'Check-in',
+                                                '29 sep, 19:00 – 20 nov, 10:00',
+                                                'icon-check-in')
+                                +registration_item(
+                                                'Scheduling:',
+                                                '29 sep, 19:00 – 20 nov, 10:00',
+                                                'icon-shedule')
+                            .label-registration
+                                .label-registration__circle: span.icon.icon-check
+                                .label-registration__text
+                                    .title Вы зарегистрированы
+                                    .descr Team: Natus vincere (#353)
+                            ul.nav-page
+                                li: a(href='#') Support
+                                li: a(href='#') Rules
+                                li: a(href='#') FAQ
+
+
+                            
+
+                    
+                
+                    
+
+        script(src="js/main.js")
+                       
+

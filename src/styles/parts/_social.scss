@@ -1,0 +1,27 @@
+.social{
+    display: inline-flex;
+
+    &__link{
+        margin-right: 30px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__icon{
+        color: $white;
+        transition: opacity .1s ease-out;
+        &:hover{
+            @include desktop {
+                opacity: .6;
+            }
+        }
+    }
+    .icon-twitch{
+        font-size: 20px;
+    }
+    .icon-facebook{
+        font-size: 20px;
+    }
+}

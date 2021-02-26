@@ -1,0 +1,62 @@
+.section{
+    overflow: hidden;
+    @include mobile {
+        margin: 40px auto;
+    }
+    @include tablet {
+        margin: 60px auto;
+    }
+    @include desktop {
+        margin: 90px auto;
+    }
+    &__title{
+        font-weight: $f_bold;
+        @include mobile {
+            font-size: 28px;
+            line-height: 35px;
+        }
+        @include tablet_desktop {
+            font-size: 32px;
+            line-height: 45px;
+        }
+    }
+    &__descr{
+        max-width: 780px;
+        color: $grey;
+        a{color: $red;}
+    }
+    &__descr,
+    &__subtitle{
+        letter-spacing: 0.01em;
+        @include mobile {
+            font-size: 16px;
+            line-height: 25px;
+        }
+        @include tablet_desktop {
+            font-size: 18px;
+            line-height: 30px;
+        }
+    }
+    &__title + &__descr{
+        margin: 20px 0 25px;
+    }
+    &__subtitle{
+        margin-bottom: 30px;
+        font-weight: $f_bold;
+    }
+}
+.section-cards{
+    @include mobile_tablet {
+        margin-bottom: -20px;
+    }
+    @include desktop {
+        margin-bottom: -35px;
+    }
+}
+.section-stage{
+    .section__row{
+        @include desktop {
+            display: flex;
+        }
+    }
+}

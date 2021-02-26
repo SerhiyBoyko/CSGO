@@ -1,0 +1,212 @@
+.registration-wrapper{
+    padding-top: 25px;
+    box-sizing: border-box;
+    @include desktop {
+        min-width: 455px;
+    }
+}
+
+.stage-registration{
+    margin-bottom: 40px;
+    position: relative;
+    &::before{
+        content: '';
+        width: 5px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 28px;
+        display: block;
+        box-shadow: inset 1px 0px 2px rgba(0, 0, 0, 0.1);
+        background-color: $white;
+        
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        &:not(:last-of-type){
+            margin-bottom: 40px;
+        }
+        &__circle{
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            border:1px solid $grey2;
+            border-radius: 50%;
+            background-color: $light-grey2;
+            @include mobile {
+                margin-right: 10px;
+            }
+            @include tablet_desktop {
+                margin-right: 20px;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                right: 4px;
+                bottom: 4px;
+                border-radius: 50%;
+                background-color: $white;
+            }
+            .icon{
+                position: relative;
+                z-index: 2;
+                color: $dark-grey;
+            }
+            .icon-cup{
+                font-size: 21px;
+            }
+            .icon-check-in,
+            .icon-shedule{
+                font-size: 24px;
+            }
+        }
+        &__text{
+            .title{
+                margin-bottom: 4px;
+            }
+            .title,
+            .descr{
+                line-height: 25px;
+                letter-spacing: 0.01em;
+                color:$dark-grey;
+                @include mobile {
+                    font-size: 14px;
+                }
+                @include tablet_desktop {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    &__item.active{
+        .stage-registration__item__circle{
+            border-color:$green;
+            background-color: $white;
+            &::before{
+                background-color: $green;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                right: 4px;
+                bottom: 29px;
+                transform-origin: bottom;
+                transform: rotate(-45deg);
+                border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+        .stage-registration__item__text{
+            .title{
+                font-weight: $f_bold;
+            }
+            .title,
+            .descr{
+                color: $black;
+            }
+        }
+        .icon{
+            color: $white;
+        }
+    }
+}
+.label-registration{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 30px;
+    position: relative;
+    border-radius: 2px;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -10px;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.15);
+        @include mobile {
+            transform-origin: 3% 0%;
+            transform: rotate(-10deg);
+        }
+        @include tablet {
+            transform-origin: 3% 0%;
+            transform: rotate(-5deg);
+        }
+        @include desktop {
+            transform-origin: 0 0;
+            transform: rotate(-8deg);
+        }
+    }
+    &__circle{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid $green;
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: $white;
+        z-index: 1;
+        @include mobile {
+            left: 10px;
+            width: 30px;
+            height: 30px;
+        }
+        @include tablet_desktop {
+            left: 20px;
+            width: 42px;
+            height: 42px;
+        }
+        .icon{
+            color: $green;
+        }
+        .icon-check{
+            @include mobile {
+                font-size: 14px;
+            }
+            @include tablet_desktop {
+                font-size: 21px;
+            }
+        }
+    }
+    &__text{
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        .title{
+            font-weight: $f_bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .descr{
+            letter-spacing: 0.01em;
+        }
+        .title,
+        .descr{
+            line-height: 20px;
+            color:$white;
+            @include mobile {
+                font-size: 12px;
+            }
+            @include tablet_desktop {
+                font-size: 14px;
+            }
+        }
+    }
+}

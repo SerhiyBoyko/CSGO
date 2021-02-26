@@ -1,0 +1,46 @@
+.nav-page{
+    li{
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(54, 56, 65, 0.1);
+        &:first-of-type{
+            border-top: 1px solid rgba(54, 56, 65, 0.1);
+        }
+    }
+    a{
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        font-weight: $f_bold;
+        box-sizing: border-box;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $dark-grey;
+        transition: color .1s ease-out;
+        @include mobile {
+            padding: 15px 0;
+        }
+        @include tablet_desktop {
+            padding: 20px 0;
+        }
+        &:hover{
+            @include desktop {
+                color: $red;
+            }
+        }
+        &::after{
+            content: '\e90a';
+            padding-right: 10px;
+            box-sizing: border-box;
+            font-family: 'icomoon' !important;
+            color: $red;
+            @include mobile {
+                font-size: 14px;
+            }
+            @include tablet_desktop {
+                font-size: 16px;
+            }
+        }
+    }
+}

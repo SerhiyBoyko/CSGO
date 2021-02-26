@@ -1,0 +1,71 @@
+.button{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: border-color .1s ease-out, background-color .1s ease-out;
+    @include mobile {
+        width: 100%;
+        height: 50px;
+    }
+    @include tablet_desktop {
+        width: 317px;
+        height: 60px;
+    }
+    &__text{
+        font-size: 14px;
+        font-weight: $f_bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+    &__text,
+    &__icon{
+        transition: color .1s ease-out;
+    }
+}
+.button-red{
+    background-color: $red;
+    &:hover{
+        @include desktop {
+            background-color: $white;
+            .button__text,
+            .button__icon{
+                color: $red;
+            }
+        }
+    }
+}
+.button-border-red{
+    border: 1px solid $red;
+    &:hover{
+        @include desktop {
+            border-color: $white;
+        }
+    }
+}
+.button-red,
+.button-border-red{
+    justify-content: space-between;
+   
+    .button__text,
+    .button__icon{
+        color: $white;
+    }
+    .icon-arrow{
+        @include mobile {
+            font-size: 16px;
+        }
+        @include tablet_desktop {
+            font-size: 18px;
+        }
+    }
+    .icon-tickets{
+        @include mobile {
+            font-size: 25px;
+        }
+        @include tablet_desktop {
+            font-size: 30px;
+        }
+    }
+}

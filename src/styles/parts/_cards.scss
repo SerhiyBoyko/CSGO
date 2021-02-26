@@ -1,0 +1,329 @@
+.cards-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-left: -10px;
+    @include mobile {
+        margin-right: -10px;
+    }
+    @include tablet {
+        margin-right: -20px;
+    }
+    @include desktop {
+        margin-right: -25px;
+    }
+}
+.card{
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(143, 154, 157, 0.2);
+    border-radius: 2px;
+    box-sizing: border-box;
+    background-color: $white;
+    margin-left: 10px;
+    @include mobile {
+        margin: 0 10px 10px;
+        width: 100%;
+    }
+    @include mobile_tablet{
+        padding: 65px 15px 15px;
+    }
+    @include tablet {
+        margin-right: 10px;
+        margin-bottom: 20px;
+        width: calc(50% - 20px);
+    }
+    @include desktop {
+        margin-right: 25px;
+        margin-bottom: 35px;
+        width: calc(25% - 35px);
+    }
+    @include desktop_min {
+        padding: 165px 15px 15px;
+    }
+    @include desktop_wide {
+        padding: 165px 25px 25px;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: url('../images/stars/star.svg');
+        background-position: top right;
+        background-repeat: no-repeat;
+        @include mobile {
+            background-size: 135px;
+        }
+        @include tablet {
+            background-size: 155px;
+        }
+        @include desktop {
+            background-size: 180px;
+        }
+    }
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 1;
+        @include mobile_desktop_min{
+            top: 15px;
+            left: 15px;
+            right: 15px;
+        }
+        @include desktop_wide {
+            top: 25px;
+            left: 25px;
+            right: 25px;
+        }
+    }
+    &__body{
+        position: relative;
+        z-index: 1;
+        &__row{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            &:not(:last-of-type){
+                @include mobile {
+                }
+                @include tablet_desktop {
+                    margin-bottom: 5px;
+                }
+            }
+            &:last-of-type{
+                @include mobile {
+                    margin-top: 5px;
+                }
+                @include tablet_desktop {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    &__tournament {
+        max-width: 52%;
+        &__name::after{
+            content: ':';
+            padding-right: 4px;
+        }
+        &__stage{
+            display: inline-block;
+        }
+    }
+    &__play{
+        @include mobile {
+            margin-right: 7px;
+        }
+        &__icon{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: $white;
+            @include mobile {
+                width: 25px;
+                height: 25px;
+            }
+            @include tablet_desktop {
+                width: 35px;
+                height: 35px;
+            }
+            &::before{
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: transparent transparent transparent $red;
+                @include mobile {
+                    border-width: 5.5px 0 5.5px 8px;
+                }
+                @include tablet_desktop {
+                    border-width: 7.5px 0 7.5px 10px;
+                }
+            }
+        }
+        &__descr{
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: $white;
+            @include mobile {
+                font-size: 12px;
+                text-align: center;
+                margin-right: -15px;
+            }
+            @include tablet_desktop {
+                font-size: 14px;
+                margin-right: -5px;
+            }
+        }
+    }
+    &__play,
+    &__date{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    &__logos-wrapper{
+        display: flex;
+        align-items: flex-start;
+        @include mobile {
+            height: 50px;
+        }
+        @include tablet_desktop {
+            height: 65px;
+        }
+    }
+    &__logo-player{
+        @include mobile {
+            width: 40px;
+            margin-right: 12px;
+        }
+        @include tablet_desktop {
+            width: 50px;
+            margin-right: 15px;
+        }
+    }
+    &__logo-group{
+        margin: auto 0;
+    }
+    &__logo-partner{
+        margin-top: 2px;
+    }
+    &__rate{
+        margin-top: 7px;
+        font-weight: $f_bold;
+        letter-spacing: 0.02em;
+        text-align: center;
+        border: 1px solid rgba(151, 151, 151, 0.1);
+        box-sizing: border-box;
+        background-color: #f0f0f0;
+        @include mobile {
+            font-size: 12px;
+            width: 55px;
+            min-width: 55px;
+            height: 20px;
+            line-height: 20px;
+        }
+        @include tablet_desktop {
+            font-size: 14px;
+            width: 60px;
+            min-width: 60px;
+            height: 24px;
+            line-height: 24px;
+        }
+    }
+    .clock{ 
+        display: inline;
+        & > div{
+            display: inline;
+            span.hours,
+            span.minutes{
+                &::after{
+                    content: ' ';
+                    white-space: pre;
+                }
+            }
+        }
+        & > div:last-of-type > span:last-of-type::after{
+                content: '•';
+                padding-left: 4px;
+        }
+    }
+    &__hold{
+        display: inline-block;
+    }
+    &__result{
+        & > span:not(:last-of-type){
+            &::after{
+                content: '•';
+                padding: 0 4px;
+            }
+        }
+    }
+    &__winner{
+        span{
+            padding-right: 4px;
+            &:last-of-type::before{
+                content: '-';
+                padding-right: 4px;
+            }
+        }
+        .icon-cup-team{
+            position: relative;
+            top: 1px;
+            padding-right: 10px;
+            font-size: 15px;
+            color: $gold;
+        }
+    }
+    &__date__time,
+    &__name,
+    &__point{
+        font-size: 24px;
+        line-height: 35px;
+        font-weight: $f_bold;
+    }
+    &__tournament,
+    &__date__month,
+    &__text,
+    &__match-num{
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: $grey;
+        @include mobile {
+            font-size: 12px;
+        }
+        @include tablet_desktop {
+            font-size: 14px;
+        }
+    }
+    &__match-num{
+        padding: 0 15px;
+        display: inline-block;
+        
+        position: absolute;
+        z-index: 1;
+        
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #F0F0F0;
+        @include mobile {
+            top: 133px;
+            right: 15px;
+            height: 30px;
+            line-height: 30px;
+        }
+        @include tablet {
+            top: 147px;
+            right: 15px;
+        }
+        @include tablet_desktop {
+            height: 40px;
+            line-height: 40px;
+        }
+        @include desktop {
+            top: 248px;
+            right: 24px;
+        }
+    }
+}
+.card.live{
+    border-color:$red;
+    &::before{
+        background-image: url('../images/stars/star-online.svg');
+    }
+}
+.card.finished::before{
+    background-image: url('../images/stars/star-finished.svg');
+}
+.card:last-of-type{
+    @include mobile {
+        margin-bottom: 20px;
+    }
+}

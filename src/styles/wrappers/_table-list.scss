@@ -1,0 +1,74 @@
+.table-list-wrapper{
+    width: 100%;
+    @include desktop {
+        margin-right: 35px;
+    }
+}
+.table-list{
+    li{
+        box-sizing: border-box;
+    }
+    & > li:nth-of-type(even){
+        background-color: $white;
+    }
+    &__heading{
+        padding-bottom: 10px;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        color: $grey;
+    }
+    &__item{
+        line-height: 30px;
+        font-weight: $f_bold;
+        letter-spacing: 0.01em;
+        @include mobile {
+            font-size: 16px;
+        }
+        @include tablet_desktop {
+            font-size: 18px;
+        }
+    }
+    &__heading,
+    &__item{
+        & ul{
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__heading + &__item{
+        border: 1px solid $green;
+    }
+    .cell{
+        margin-right: 10px;
+        display: flex;
+    }
+    .cell-link{
+        width: 100%;
+    }
+    .link{
+        width: 100%;
+        transition: color .1s ease-out;
+        @include mobile {
+            padding: 10px 0;
+        }
+        @include tablet_desktop {
+            padding: 15px 0;
+        }
+        &:hover{
+            @include desktop {
+                color: $red;
+            }
+        }
+    }
+    .count{
+        display: inline-block;
+        text-align: center;
+        @include mobile {
+            width: 60px;
+        }
+        @include tablet_desktop {
+            width: 80px;
+        }
+    }
+    
+}

@@ -1,0 +1,28 @@
+@mixin placeholder_color($color, $font_size, $font-weight:normal){
+	&::-webkit-input-placeholder{
+		color:$color;
+		font-weight:$font-weight;
+	}
+	&:-moz-placeholder{
+		color:$color;
+		opacity:1;
+		font-weight:$font-weight;
+	}
+	&::-moz-placeholder{
+		color:$color;
+		opacity:1;
+		font-weight:$font-weight;
+	}
+	&:-ms-input-placeholder{
+		color:$color;
+		font-weight:$font-weight;
+	}
+}
+
+@mixin translate{
+    -webkit-transform:translateX(0);
+	-moz-transform:translateX(0);
+	-ms-transform:translateX(0);
+	-o-transform:translateX(0);
+	transform:translateX(0)
+}

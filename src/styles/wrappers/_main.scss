@@ -1,0 +1,179 @@
+.main{
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    box-sizing: border-box; 
+    @include mobile {
+        padding: 40px 0;
+    }
+    @include tablet {
+        padding: 60px 0;
+    }
+    @include tablet_desktop {
+        align-items: center;
+    }
+    @include desktop {
+        padding: 80px 0;
+    }
+    .container{
+        @include desktop {
+            margin-top: -30px;
+        }
+    }
+    
+    &__image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        &::before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(39.97% 78.36% at 60.78% 0%, rgba(24, 24, 28, 0.46) 0%, #18181C 100%);
+        }
+    }
+    &__logo{
+        @include mobile {
+            width: 120px;
+            margin-bottom: 30px;
+        }
+        @include tablet_desktop {
+            margin-bottom: 45px;
+        }
+    }
+    &__title{
+        line-height: 1.15;
+        font-weight: $f_bold;
+        color: $white;
+        @include mobile {
+            max-width: 430px;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        @include tablet {
+            font-size: 45px;
+            margin-bottom: 40px;
+        }
+        @include desktop {
+            font-size: 60px;
+            margin-bottom: 50px;
+        }
+    }
+    &__descr{
+        border-left: 2px solid $red;
+        box-sizing: border-box;
+        letter-spacing: 0.01em;
+        color: $light-grey;
+        @include mobile {
+            padding-left: 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            line-height: 25px; 
+        }
+        @include tablet {
+            margin-bottom: 50px;
+        }
+        @include tablet_desktop {
+            padding-left: 40px;
+            font-size: 18px;
+            line-height: 30px; 
+        }
+    }
+    &__title,
+    &__descr{
+        width: 100%;
+        @include tablet {
+            max-width: 640px;
+        }
+        @include desktop {
+            max-width: 720px;
+            margin-right: 40px;
+        }
+    }
+    &__about{
+        &__line{
+            display: flex;
+            &:not(:last-of-type){
+                margin-bottom: 20px;
+            }
+        }
+        &__title{
+            width: 100px;
+            min-width: 100px;
+        }
+        &__descr{
+            font-weight: $f_bold;
+        }
+        &__title,
+        &__descr{
+            letter-spacing: 0.01em;
+            color: $white;
+            @include mobile {
+                font-size: 16px;
+            }
+            @include tablet_desktop {
+                font-size: 18px;
+            }
+        }
+    }
+    .social{
+        @include mobile_tablet {
+            order: -1;
+        }
+    }
+    &__about,
+    .social{
+        @include tablet_desktop {
+            min-width: 400px;
+        }
+    }
+    &__buttons-wrapper{
+        @include mobile {
+            margin-top: 40px;
+        }
+        @include tablet {
+            margin-top: 45px;
+        }
+        @include tablet_desktop {
+            display: flex;
+        }
+        .button{
+            @include tablet_desktop {
+                margin-right: 35px;
+            }
+            &:not(:last-of-type){
+                @include mobile {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    &__row{
+        display: flex;
+        @include mobile_tablet {
+            flex-direction: column;
+        }
+        @include desktop {
+            justify-content: space-between;
+            align-items: center;
+        }
+        &:first-of-type{
+            @include mobile {
+                margin-bottom: 30px;
+            }
+            @include tablet {
+                margin-bottom: 40px;
+            }
+            @include desktop {
+                margin-bottom: 85px;
+            }
+        }
+    }
+}

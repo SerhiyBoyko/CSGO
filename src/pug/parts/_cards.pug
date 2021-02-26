@@ -1,0 +1,104 @@
+mixin match(object)
+    a.card(class=object.class href= object.link)
+        .card__top
+            .card__tournament
+                span.card__tournament__name= object.tournament
+                span.card__tournament__stage= object.stage
+            if object.class == 'live'
+                .card__play
+                    .card__play__icon
+                    .card__play__descr WATCH LIVE!
+            else
+                .card__date
+                    .card__date__time= object.time
+                    .card__date__month= object.date
+        .card__body
+            .card__logos-wrapper
+                img.card__logo-player(src=object.logo_1, alt="")
+                img.card__logo-player(src=object.logo_2, alt="")
+
+            if object.class == 'finished'
+                if object.point_1 > object.point_2
+                    .card__body__row
+                        .card__name= object.name_1
+                        .card__point= object.point_1
+                    .card__body__row
+                        .card__name.text-grey= object.name_2
+                        .card__point.text-grey= object.point_2
+                else
+                    .card__body__row
+                        .card__name.text-grey= object.name_1
+                        .card__point.text-grey= object.point_1
+                    .card__body__row
+                        .card__name= object.name_2
+                        .card__point= object.point_2
+            else
+                .card__body__row
+                    .card__name= object.name_1
+                    .card__rate= object.rate_1
+                .card__body__row
+                    .card__name= object.name_2
+                    .card__rate= object.rate_2
+
+            .card__body__row
+                div.card__text
+                    if object.class == 'live'
+                        .card__hold= object.hold
+                    else if object.class == 'finished'
+                        .card__result 
+                            each item in object.maps
+                                span= item
+                    else
+                        .clock(data-date=object.timer)
+                            div
+                                span Starts in: 
+                                span.hours
+                                span hours
+                            div
+                                span.minutes
+                                span min
+                        .card__hold= object.hold
+
+                img.card__logo-partner(src=object.partner, alt="")
+mixin battle(object)
+    a.card(class=object.class href= object.link)
+        .card__top
+            .card__tournament
+                span.card__tournament__stage= object.stage
+            if object.class == 'live'
+                .card__play
+                    .card__play__icon
+                    .card__play__descr WATCH LIVE!
+            else
+                .card__date
+                    .card__date__time= object.time
+                    .card__date__month= object.date
+        .card__body
+            .card__logos-wrapper
+                img.card__logo-group(src=object.logo, alt="")
+           
+            .card__body__row
+                .card__name= object.name_1
+            .card__body__row
+                .card__name= object.name_2
+
+            .card__body__row
+                div.card__text
+                    if object.class == 'live'
+                        .card__hold Map: #{object.map}
+                    else if object.class == 'finished'
+                        .card__winner
+                            span.icon-cup-team
+                            each item in object.winner
+                                span= item
+                    else
+                        .clock(data-date=object.timer)
+                            div
+                                span Starts in: 
+                                span.hours
+                                span hours
+                            div
+                                span.minutes
+                                span min
+                        .card__hold Map: #{object.map}
+        .card__match-num Match ##{object.match_num}

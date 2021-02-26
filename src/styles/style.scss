@@ -1,0 +1,52 @@
+@import 'base/normalize'; 
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/media';
+@import 'base/text';
+
+@import 'base/fonts';
+@import 'base/icon-fonts';
+
+@import 'parts/buttons';
+@import 'parts/header';
+@import 'parts/social';
+@import 'parts/tabs';
+@import 'parts/section';
+@import 'parts/cards';
+@import 'parts/nav-page';
+
+@import 'wrappers/_main';
+@import 'wrappers/table-list';
+@import 'wrappers/registration';
+
+
+body{
+    font-family:$font_family_Roboto;
+    font-weight:$f_regular;
+    color: $black;
+    background: $light_grey;
+}
+
+#page{
+	width:100%; 
+	min-height:100%;
+}
+.container{
+    width: 100%;
+    max-width: 1560px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    @include mobile {
+        padding: 0 20px; 
+    }
+    @include tablet {
+        padding: 0 30px;
+    }
+    @include desktop_min {
+        padding: 0 40px;
+    }
+    @include desktop_wide {
+        padding: 0 60px;
+    }
+} 
+
